@@ -12,9 +12,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Header />
-      <h1 className="text-3xl font-bold underline">
-        Building Dapps
-      </h1>
+
       <Footer />
     </>
   );
