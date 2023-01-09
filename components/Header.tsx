@@ -1,30 +1,21 @@
 import { useState } from "react";
-import {NextComponentType} from "next";
-import Button from "./Button";
-import Modal from "./Modal";
+import {NextComponentType, NextPage} from "next";
+import { Button } from ".";
 
-const Header: NextComponentType = () => {
+interface Props {
+  activateModal: boolean;
+  clickHandler: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
-  const [clicked, setClickedButton] = useState(false);
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-
-    console.log(event.currentTarget)
-    if (event.target === event.currentTarget) {
-      setClickedButton((status) => !status)
-    }
-
-  }
+const Header: NextPage<Props> = ({activateModal, clickHandler}) => {
 
   return (
     <>
       <header className="md:container md:mx-auto h-24 flex flex-row justify-between items-center">
         <h1 className="font-bold text-lg">Challenge</h1>
-        <p>We are talking {clicked}</p>
-        <Button clickHandler={handleClick} />
+        <p>We are talking {activateModal}</p>
+        <Button clickHandler={clickHandler} />
       </header>
-      <Modal clickHandler={handleClick} activateModal={clicked} />
     </>
   )
 }
