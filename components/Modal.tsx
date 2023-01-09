@@ -1,5 +1,6 @@
-import { NextPage } from "next";
 import React from "react";
+import { NextPage } from "next";
+
 
 interface Props {
   activateModal: boolean;
@@ -17,7 +18,6 @@ const Modal: NextPage<Props> = ({activateModal, clickHandler}) => {
         >
           <div className="flex justify-center w-1/2 h-1/2 bg-white relative items-center">
             <span className="absolute top-5 right-5" onClick={clickHandler} onKeyDown={() => clickHandler}>close</span>
-            See me
           </div>
         </div>
       )}
